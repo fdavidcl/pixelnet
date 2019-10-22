@@ -5,7 +5,7 @@ using bilinear interpolation
 
 import numpy as np
 import tensorflow as tf
-from keras import backend as K
+from tensorflow.keras import backend as K
 
 def get_values(data, batch, x, y):
     """ construct index tensor for tf.gather_nd """

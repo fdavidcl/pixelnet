@@ -1,10 +1,10 @@
 import tensorflow as tf
 
-from keras import layers
-from keras import models
-from keras import regularizers
-from keras import initializers
-import keras.backend as K
+from tensorflow.keras import layers
+from tensorflow.keras import models
+from tensorflow.keras import regularizers
+from tensorflow.keras import initializers
+import tensorflow.keras.backend as K
 
 init = initializers.VarianceScaling(
     scale=0.5,

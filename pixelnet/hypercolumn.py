@@ -6,9 +6,9 @@ using bilinear interpolation
 import numpy as np
 import tensorflow as tf
 
-from keras.models import Model
-from keras import backend as K
-from keras.layers import Concatenate, Input, Lambda, BatchNormalization, Activation
+from tensorflow.keras.models import Model
+from tensorflow.keras import backend as K
+from tensorflow.keras.layers import Concatenate, Input, Lambda, BatchNormalization, Activation
 
 
 def get_values(data, batch, x, y):

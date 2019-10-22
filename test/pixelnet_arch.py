@@ -4,8 +4,8 @@ import numpy as np
 
 import tensorflow as tf
 
-from keras import optimizers
-from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
+from tensorflow.keras import optimizers
+from tensorflow.keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 
 import sys
 sys.path.append(os.getcwd())

@@ -5,9 +5,9 @@ import numpy as np
 import scipy.ndimage as ndi
 
 import tensorflow as tf
-from keras import backend as K
-from keras.utils.np_utils import to_categorical
-from keras.preprocessing.image import flip_axis
+from tensorflow.keras import backend as K
+from tensorflow.keras.utils.np_utils import to_categorical
+from tensorflow.keras.preprocessing.image import flip_axis
 
 def random_intensity_shift(x, intensity_fraction=0.01):
     min_x, max_x = np.min(x), np.max(x)

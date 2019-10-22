@@ -1,17 +1,17 @@
 import os
 
-import keras.backend as K
-from keras.layers import Flatten, Reshape
-from keras.layers import Dense
-from keras.layers import Input
-from keras.layers import Activation
-from keras.layers import MaxPooling2D
-from keras.layers import Conv1D, Conv2D
-from keras.layers import GlobalMaxPooling2D
-from keras.layers import GlobalAveragePooling2D
+import tensorflow.keras.backend as K
+from tensorflow.keras.layers import Flatten, Reshape
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Input
+from tensorflow.keras.layers import Activation
+from tensorflow.keras.layers import MaxPooling2D
+from tensorflow.keras.layers import Conv1D, Conv2D
+from tensorflow.keras.layers import GlobalMaxPooling2D
+from tensorflow.keras.layers import GlobalAveragePooling2D
 
-from keras.models import Model
-from keras import applications
+from tensorflow.keras.models import Model
+from tensorflow.keras import applications
 
 WEIGHTS_DIR='/mnt/data/users/holmlab/.keras/models'
 
