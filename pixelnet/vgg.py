@@ -13,7 +13,7 @@ from tensorflow.keras.layers import GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 from tensorflow.keras import applications
 
-WEIGHTS_DIR='/mnt/data/users/holmlab/.keras/models'
+WEIGHTS_DIR=os.path.join(os.environ["HOME"], ".keras/models")
 
 def load_imagenet_weights(model, weights_dir=WEIGHTS_DIR):
     # load convolution layers
