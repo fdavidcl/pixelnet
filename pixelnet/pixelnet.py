@@ -88,7 +88,7 @@ def build_model(hc_model, width=1024, depth=2, dropout_rate=0.5, nclasses=4, mod
     activation: activation function for prediction layer. 'softmax' for classification, 'linear' for regression. """
 
     x = hc_model.output
-    nchannels = tf.shape(x)[-1]
+    nchannels = x.shape[-1]
     x = flatten_pixels(nchannels)(x)
 
     if selu:

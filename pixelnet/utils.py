@@ -6,8 +6,8 @@ import scipy.ndimage as ndi
 
 import tensorflow as tf
 from tensorflow.keras import backend as K
-from tensorflow.keras.utils.np_utils import to_categorical
-from tensorflow.keras.preprocessing.image import flip_axis
+from tensorflow.keras.utils import to_categorical
+# from tensorflow.keras.preprocessing.image import flip_axis
 
 def random_intensity_shift(x, intensity_fraction=0.01):
     min_x, max_x = np.min(x), np.max(x)
@@ -24,13 +24,13 @@ def augment(I, L, rotation_range, zoom_range, horizontal_flip=False, vertical_fl
 
         if horizontal_flip:
             if np.random.random() < 0.5:
-                II = flip_axis(II, 1)
-                LL = flip_axis(LL, 1)
+                II = np.flip(II, 1)
+                LL = np.flip(LL, 1)
 
         if vertical_flip:
             if np.random.random() < 0.5:
-                II = flip_axis(II, 0)
-                LL = flip_axis(LL, 0)
+                II = np.flip(II, 0)
+                LL = np.flip(LL, 0)
 
         if intensity_shift > 0:
             II = random_intensity_shift(II, intensity_fraction=intensity_shift)
