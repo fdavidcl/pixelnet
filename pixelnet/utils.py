@@ -76,6 +76,30 @@ def random_crop(images, labels, cropsize):
 
     return I, L
 
+def random_crop_generator(images, labels, batchsize=4, cropsize=224, nclasses=4):
+    b, h, w, c = images.shape
+
+    while True:
+        # preallocate output tensors
+        I = np.zeros((b, cropsize, cropsize, c), dtype=images.dtype)
+        L = np.zeros((b, cropsize, cropsize), dtype=labels.dtype)
+
+        # choose random cropsizeXcropsize windows
+        xx = np.random.choice(range(w - cropsize), size=b)
+        yy = np.random.choice(range(h - cropsize), size=b)
+
+        # crop input image and labels consistently
+        for idx in range(b):
+            x, y = xx[idx], yy[idx]
+            I[idx] = images[idx,y:y+cropsize,x:x+cropsize,:]
+            L[idx] = labels[idx,y:y+cropsize,x:x+cropsize]
+
+        s = L.shape
+        L = to_categorical(L.flat, num_classes=nclasses)
+        L = L.reshape((*s, nclasses))
+        yield I, L
+
+
 def random_pixel_samples(images, labels, batchsize=4, npix=2048, cropsize=None, nclasses=4, replace_samples=True, categorical=True,
                          confidence=1.0, horizontal_flip=False, vertical_flip=False, rotation_range=0.0, zoom_range=0.0, intensity_shift=0.0):
     """ generate random samples of pixels in batches of training images """
